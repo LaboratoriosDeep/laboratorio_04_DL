@@ -189,3 +189,4 @@ El laboratorio reporta métricas separadas por tarea:
 ## Material docente
 
 El archivo `presentation/Laboratorio_04_Guia_Uso_Codigo.tex` contiene una presentación Beamer didáctica para guiar el uso del laboratorio en servidor, explicar los YAML y revisar los comandos principales.
+# laboratorio_04_DL

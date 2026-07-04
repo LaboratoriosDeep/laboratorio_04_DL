@@ -27,7 +27,7 @@ dataset:
 preprocessing:
   image_size:
     - 128
-    - 128
+    - 12
   color_space: RGB
   normalize: true
 
@@ -71,7 +71,7 @@ traditional_augmentation:
 
 cae:
   latent_dim: 128
-  epochs: 30
+  epochs: 50
   batch_size: 64
   learning_rate: 0.001
   noise_std: 0.10
