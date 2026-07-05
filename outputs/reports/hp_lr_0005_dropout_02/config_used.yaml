@@ -22,8 +22,8 @@ dataset:
   max_images: 0
 preprocessing:
   image_size:
-  - 32
-  - 32
+  - 128
+  - 12
   color_space: RGB
   normalize: true
 age:
@@ -86,7 +86,7 @@ gan:
   samples_per_group: 500
   synthetic_age_label_strategy: group_midpoint
 multitask_model:
-  dropout: 0.3
+  dropout: 0.2
   hidden_dim: 256
   gender_output_classes: 2
   age_output_dim: 1
@@ -96,89 +96,15 @@ losses:
 training:
   epochs: 30
   batch_size: 64
-  learning_rate: 0.001
+  learning_rate: 0.0005
   weight_decay: 0.0001
   early_stopping: true
   patience: 8
   num_workers: 0
 experiments:
-- name: E00_real_only
+- name: hp_lr_0005_dropout_02
   use_real: true
   use_traditional_aug: false
   use_cae: false
   use_vae: false
   use_gan: false
-- name: E01_real_traditional
-  use_real: true
-  use_traditional_aug: true
-  use_cae: false
-  use_vae: false
-  use_gan: false
-- name: E02_real_cae
-  use_real: true
-  use_traditional_aug: false
-  use_cae: true
-  use_vae: false
-  use_gan: false
-- name: E03_real_vae
-  use_real: true
-  use_traditional_aug: false
-  use_cae: false
-  use_vae: true
-  use_gan: false
-- name: E04_real_gan
-  use_real: true
-  use_traditional_aug: false
-  use_cae: false
-  use_vae: false
-  use_gan: true
-- name: E05_all
-  use_real: true
-  use_traditional_aug: true
-  use_cae: true
-  use_vae: true
-  use_gan: true
-- name: E06_real_cae_vae
-  use_real: true
-  use_traditional_aug: false
-  use_cae: true
-  use_vae: true
-  use_gan: false
-- name: E07_real_vae_gan
-  use_real: true
-  use_traditional_aug: false
-  use_cae: false
-  use_vae: true
-  use_gan: true
-hyperparameter_sweeps:
-- name: quick_multitask
-  description: Barrido pequeño para estudiar pesos de pérdidas, learning rate y dropout.
-  base_experiment: E00_real_only
-  runs:
-  - name: hp_lambda_age_05
-    overrides:
-      losses:
-        lambda_gender: 1.0
-        lambda_age: 0.5
-  - name: hp_lambda_age_10
-    overrides:
-      losses:
-        lambda_gender: 1.0
-        lambda_age: 1.0
-  - name: hp_lambda_age_20
-    overrides:
-      losses:
-        lambda_gender: 1.0
-        lambda_age: 2.0
-  - name: hp_lr_0005_dropout_02
-    overrides:
-      training:
-        learning_rate: 0.0005
-      multitask_model:
-        dropout: 0.2
-  - name: hp_lr_001_dropout_05
-    overrides:
-      training:
-        learning_rate: 0.001
-      multitask_model:
-        dropout: 0.5

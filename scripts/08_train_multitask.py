@@ -59,7 +59,15 @@ def main() -> int:
 
     model = build_multitask_model(config)
     output_dir = ensure_dir(Path(config["paths"]["models_dir"]) / args.experiment)
+    
+    # Entrenamiento (Aquí se genera el historial)
     history = train_multitask_model(model, train_loader, val_loader, config, device, output_dir)
+
+    # ---> INICIO DEL CÓDIGO AGREGADO PARA GRAFICAR <---
+    from src.evaluation.plots import plot_loss_curves
+    fig_path = Path("outputs/figures") / f"{args.experiment}_loss.png"
+    plot_loss_curves(history, fig_path)
+    # ---> FIN DEL CÓDIGO AGREGADO PARA GRAFICAR <---
 
     report_dir = ensure_dir(Path(config["paths"]["reports_dir"]) / args.experiment)
     (report_dir / "config_used.yaml").write_text(

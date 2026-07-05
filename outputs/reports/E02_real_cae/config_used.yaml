@@ -63,7 +63,7 @@ traditional_augmentation:
   gaussian_blur: false
 cae:
   latent_dim: 128
-  epochs: 30
+  epochs: 50
   batch_size: 64
   learning_rate: 0.001
   noise_std: 0.1

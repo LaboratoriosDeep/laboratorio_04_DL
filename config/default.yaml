@@ -26,8 +26,8 @@ dataset:
 
 preprocessing:
   image_size:
-    - 128
-    - 12
+    - 32
+    - 32
   color_space: RGB
   normalize: true
 
