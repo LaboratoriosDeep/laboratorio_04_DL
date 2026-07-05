@@ -1,0 +1,10 @@
+{
+  "total_valid_images": 23705,
+  "total_invalid_images": 3,
+  "splits": {
+    "train": 16593,
+    "validation": 3555,
+    "test": 3557
+  },
+  "original_utkface_dir": "/srv/datasets/imagenes/UTKFace/utkface_aligned_cropped/UTKFace"
+}

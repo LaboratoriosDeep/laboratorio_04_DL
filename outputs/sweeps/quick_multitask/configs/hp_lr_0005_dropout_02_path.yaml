@@ -1,0 +1,6 @@
+paths:
+  original_utkface_dir: /srv/datasets/imagenes/UTKFace/utkface_aligned_cropped/UTKFace
+training:
+  learning_rate: 0.0005
+multitask_model:
+  dropout: 0.2

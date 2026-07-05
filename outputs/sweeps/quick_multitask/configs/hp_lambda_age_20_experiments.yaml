@@ -1,0 +1,7 @@
+experiments:
+- name: hp_lambda_age_20
+  use_real: true
+  use_traditional_aug: false
+  use_cae: false
+  use_vae: false
+  use_gan: false

@@ -1,0 +1,5 @@
+paths:
+  original_utkface_dir: /srv/datasets/imagenes/UTKFace/utkface_aligned_cropped/UTKFace
+losses:
+  lambda_gender: 1.0
+  lambda_age: 2.0
